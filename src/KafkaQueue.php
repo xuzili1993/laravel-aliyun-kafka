@@ -164,7 +164,9 @@ class KafkaQueue extends Queue
     public function later($delay, $job, $data = '', $queue = null)
     {
         // The Kafka does not support later
-        throw new \Exception('kafka not support delay until now');
+        //throw new \Exception('kafka not support delay until now');
+        $this->push($job, $data, $queue);
+        
     }
 
     /**
